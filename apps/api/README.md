@@ -8,27 +8,27 @@ The backend provides functionality to manage gas consumption measurements, inclu
 
 ## Technologies & Tools
 
-- **NestJS:**  
+- **NestJS:**
   - **Reason:** Provides a modular architecture with dependency injection, supports TypeScript out of the box, and offers seamless integration with GraphQL.
   - **Benefits:** Encourages a clean and scalable project structure, reduces boilerplate code, and improves maintainability.
 
-- **GraphQL & Apollo Server:**  
+- **GraphQL & Apollo Server:**
   - **Reason:** Enables flexible and efficient API design where clients can request exactly what they need.
   - **Benefits:** Minimizes data over-fetching, supports real-time data with subscriptions (if needed), and offers powerful developer tools like GraphQL Playground.
 
-- **Prisma ORM:**  
+- **Prisma ORM:**
   - **Reason:** Offers a modern, type-safe approach to interact with databases.
   - **Benefits:** Simplifies database operations with auto-generated queries, enhances developer productivity with code completion, and provides an intuitive migration system.
 
-- **SQLite:**  
+- **SQLite:**
   - **Reason:** Chosen for its simplicity during development. No additional setup is required, making it ideal for prototyping and small to medium projects.
   - **Benefits:** Lightweight, fast, and zero-configuration.
 
-- **TypeScript:**  
+- **TypeScript:**
   - **Reason:** Improves code quality with static typing.
   - **Benefits:** Enhances maintainability, readability, and reduces runtime errors.
 
-- **Optional - Docker:**  
+- **Optional - Docker:**
   - **Reason:** For containerization and streamlined deployments.
   - **Benefits:** Provides consistency across different environments and simplifies production deployments.
 
@@ -52,25 +52,30 @@ energy-consumption-tracker/
 ## Setup
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/syed-asad-ul-zaman/energy-consumption-tracker.git
-   cd api
+   cd apps/api
    ```
 
 2. Install dependencies
+
    ```bash
-   npm install
+   pnpm install
    ```
 
 3. Configure Prisma
    - The project uses SQLite by default. Verify the datasource in prisma/schema.prisma:
+
      ```text
      datasource db {
        provider = "sqlite"
        url      = "file:./dev.db"
      }
      ```
+
    - Run migrations to create the database
+
      ```bash
      npx prisma migrate dev --name init
      npx prisma generate
@@ -78,8 +83,10 @@ energy-consumption-tracker/
 
 4. Start the Application
    - Start the NestJS server in development mode:
+
      ```bash
-     npm run dev
+     pnpm run dev
      ```
+
    - Open a browser and navigate to [http://localhost:8000](http://localhost:8000) to see Application home page.
    - The GraphQL Playground interface is available at [http://localhost:8000/graphql](http://localhost:8000/graphql)
